@@ -1,14 +1,15 @@
 package org.tharun.doctorPatient.dto;
 
-import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +26,7 @@ public class Patient {
 	private String reason;
 	
 	@ManyToOne
-	@JoinColumn(name = "patient_id")
+	@JoinColumn(name = "doctorid")
 	private Doctor doctor;
 	
 	public Doctor getDoctor() {
@@ -70,7 +71,4 @@ public class Patient {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	
-	
-	
 }
